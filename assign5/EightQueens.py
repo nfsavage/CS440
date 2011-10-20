@@ -4,11 +4,6 @@ import minConflicts as mc
 ######   8 Queens Problem   ###########################
 #######################################################
 
-def queen_constraint(A, a, B, b):
-    """Constraint is satisfied (true) if A, B are really the same variable,
-    or if they are not in the same row, down diagonal, or up diagonal."""
-    return A == B or (a != b and A + a != B + b and A - a != B - b)
-
 class EightQueens():
 
     def __init__(self):
@@ -18,8 +13,11 @@ class EightQueens():
         self.downs=[0]*(15)
         self.nassigns = 0
         self.vars = range(8)
+        print "Vars"
+        print self.vars
         self.domains = UniversalDict(range(8))
-        self.neighbors = UniversalDict(range(8))
+        print "domains"
+        print self.domains
 
     def nconflicts(self, var, val, assignment): 
         """The number of conflicts, as recorded with each assignment.
@@ -73,7 +71,7 @@ class EightQueens():
             for var in range(n):
                 if assignment.get(var,'') == val: ch = '*'
                 else: ch = ' '
-                print str(self.nconflicts(var, val, assignment))+ch, 
+#                print str(self.nconflicts(var, val, assignment))+ch, 
             print       
 
 ####################################################

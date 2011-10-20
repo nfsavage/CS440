@@ -10,18 +10,21 @@ def min_conflicts(problem, max_steps=1000):
     current = {}
     for var in problem.vars:
         val = min_conflicts_value(problem, var, current)
+        #current[var] = val
         problem.assign(var, val, current)
     # Now repeatedly choose a random conflicted variable and change it
     for i in range(max_steps):
         conflicted = problem.conflicted_vars(current)
         if not conflicted:
-            problem.display(current) 
+            problem.display(current)
             print "Steps to solution", i
             return current
         var = random.choice(conflicted)
         val = min_conflicts_value(problem, var, current)
+        #current[var] = val
         problem.assign(var, val, current)
-    problem.display(current)
+    #problem.display(current)
+    print "No solution"
     return None
 
 def min_conflicts_value(problem, var, current):
