@@ -1,0 +1,19 @@
+/---------------------------------\
+           Nick Savage
+        CS440 Assignment 5
+\---------------------------------/
+
+For part 2 I get result that are driven by the 200 and 300 level classes because those are the ones with the most constranits. Then the 400 level classes get places and then the 100 level classes get whatever slots are left over because they have no constraints. Here is one of the many solutions that I got for this issue.
+
+    CSB 130      CSB 425
+------------------------------------
+ 9    CS430       CS320
+10    CS410       CS270
+11    CS440       CS314
+12    CS253       CS161
+ 1    CS160       CS200
+
+Steps to solution 0
+
+
+All of the solutions that I seem to get are with in 0 or in 1000 steps, and the ones with 1000 steps are valid schedules.... huh. A bug must have evaided me along the way.

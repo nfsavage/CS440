@@ -41,8 +41,6 @@ class ClassScheduling():
                         "CS440":["CS410", "CS430"]}
     def nconflicts(self, var, val, assignment):
         c = 0
-#        if val in assignment.values():
-#            c +=1
         if val in assignment.values():
             for key in assignment.keys():
                 if key != var:
@@ -101,7 +99,27 @@ class ClassScheduling():
                 print " 1", "  ", CSB130[i], "     ", CSB425[i]
         print
 
-if __name__ == "__main__":
-    for i in range(100):
+####################################################
+##########   Main   ################################
+####################################################
+def runThree():
+    for i in range(3):
         problem = ClassScheduling()
-        mc.min_conflicts(problem)
+        mc.min_conflicts(problem, True)
+
+def runTen():
+    vals = []
+    for i in range(10):
+        problem = ClassScheduling()
+        vals.append(mc.min_conflicts(problem, False))
+    total = 0
+    average = 0
+    for val in vals:
+        if val is not None:
+            average += val
+            total += 1
+    average = average / total
+    print "Attempted 10 class scheduling problems"
+    print "Results:", vals
+    print total, "class scheduling problems solved in an average of", average, "steps."
+
